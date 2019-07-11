@@ -15,7 +15,7 @@ import org.jeecg.common.system.util.JwtUtil;
 import org.jeecg.common.util.MD5Util;
 import org.jeecg.common.util.oConvertUtils;
 import org.jeecg.modules.system.entity.SysPermission;
-import org.jeecg.modules.system.entity.SysPermissionDataRule;
+import org.jeecg.common.system.entity.SysPermissionDataRule;
 import org.jeecg.modules.system.entity.SysRolePermission;
 import org.jeecg.modules.system.model.SysPermissionTree;
 import org.jeecg.modules.system.model.TreeModel;
@@ -370,9 +370,6 @@ public class SysPermissionController {
 	
 	/**
 	  *  获取权限JSON数组
-	 * @param jsonArray
-	 * @param metaList
-	 * @param parentJson
 	 */
 	private void getAllAuthJsonArray(JSONArray jsonArray,List<SysPermission> allList) {
 		JSONObject json = null;

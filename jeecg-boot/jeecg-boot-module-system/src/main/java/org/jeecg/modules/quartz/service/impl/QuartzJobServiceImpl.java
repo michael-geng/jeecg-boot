@@ -18,6 +18,7 @@ import org.quartz.SchedulerException;
 import org.quartz.TriggerBuilder;
 import org.quartz.TriggerKey;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -32,6 +33,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @Service
+@ConditionalOnProperty(value = "${spring.quartz.enabled}", matchIfMissing = false)
 public class QuartzJobServiceImpl extends ServiceImpl<QuartzJobMapper, QuartzJob> implements IQuartzJobService {
 	@Autowired
 	private QuartzJobMapper quartzJobMapper;

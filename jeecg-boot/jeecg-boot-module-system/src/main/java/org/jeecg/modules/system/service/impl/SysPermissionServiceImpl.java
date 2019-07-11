@@ -10,7 +10,7 @@ import org.jeecg.common.constant.CommonConstant;
 import org.jeecg.common.exception.JeecgBootException;
 import org.jeecg.common.util.oConvertUtils;
 import org.jeecg.modules.system.entity.SysPermission;
-import org.jeecg.modules.system.entity.SysPermissionDataRule;
+import org.jeecg.common.system.entity.SysPermissionDataRule;
 import org.jeecg.modules.system.mapper.SysPermissionMapper;
 import org.jeecg.modules.system.model.TreeModel;
 import org.jeecg.modules.system.service.ISysPermissionDataRuleService;

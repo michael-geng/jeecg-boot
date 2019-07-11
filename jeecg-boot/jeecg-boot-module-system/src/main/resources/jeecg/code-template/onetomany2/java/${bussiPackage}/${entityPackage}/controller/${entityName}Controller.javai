@@ -43,7 +43,7 @@ import com.alibaba.fastjson.JSON;
 
  /**
  * @Description: ${tableVo.ftlDescription}
- * @Author: jeecg-boot
+ * @Author: ds
  * @Date:   ${.now?string["yyyy-MM-dd"]}
  * @Version: V1.0
  */
@@ -57,15 +57,7 @@ public class ${entityName}Controller {
 	@Autowired
 	private I${sub.entityName}Service ${sub.entityName?uncap_first}Service;
 	</#list>
-	
-	/**
-	  * 分页列表查询
-	 * @param ${entityName?uncap_first}
-	 * @param pageNo
-	 * @param pageSize
-	 * @param req
-	 * @return
-	 */
+
 	@GetMapping(value = "/list")
 	public Result<IPage<${entityName}>> queryPageList(${entityName} ${entityName?uncap_first},
 									  @RequestParam(name="pageNo", defaultValue="1") Integer pageNo,
@@ -79,12 +71,7 @@ public class ${entityName}Controller {
 		result.setResult(pageList);
 		return result;
 	}
-	
-	/**
-	  *   添加
-	 * @param ${entityName?uncap_first}Page
-	 * @return
-	 */
+
 	@PostMapping(value = "/add")
 	public Result<${entityName}> add(@RequestBody ${entityName}Page ${entityName?uncap_first}Page) {
 		Result<${entityName}> result = new Result<${entityName}>();
@@ -100,12 +87,7 @@ public class ${entityName}Controller {
 		}
 		return result;
 	}
-	
-	/**
-	  *  编辑
-	 * @param ${entityName?uncap_first}Page
-	 * @return
-	 */
+
 	@PutMapping(value = "/edit")
 	public Result<${entityName}> edit(@RequestBody ${entityName}Page ${entityName?uncap_first}Page) {
 		Result<${entityName}> result = new Result<${entityName}>();
@@ -123,7 +105,7 @@ public class ${entityName}Controller {
 	}
 	
 	/**
-	  *   通过id删除
+	 *   通过id删除
 	 * @param id
 	 * @return
 	 */
@@ -139,7 +121,7 @@ public class ${entityName}Controller {
 	}
 	
 	/**
-	  *  批量删除
+	 *  批量删除
 	 * @param ids
 	 * @return
 	 */
@@ -156,7 +138,7 @@ public class ${entityName}Controller {
 	}
 	
 	/**
-	  * 通过id查询
+	 * 通过id查询
 	 * @param id
 	 * @return
 	 */
@@ -177,7 +159,7 @@ public class ${entityName}Controller {
 	
 	<#list subTables as sub>
 	/**
-	  * 通过主表id查询${sub.ftlDescription}
+	 * 通过主表id查询${sub.ftlDescription}
 	 * @param mainId
 	 * @return
 	 */

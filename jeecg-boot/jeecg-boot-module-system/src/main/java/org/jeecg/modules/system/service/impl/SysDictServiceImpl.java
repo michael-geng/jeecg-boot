@@ -45,7 +45,7 @@ public class SysDictServiceImpl extends ServiceImpl<SysDictMapper, SysDict> impl
 	@Override
 	@Cacheable(value = CacheConstant.DICT_CACHE,key = "#code")
 	public List<DictModel> queryDictItemsByCode(String code) {
-		log.info("无缓存dictCache的时候调用这里！");
+		log.info("无缓存dictCache的时候调用这里！code:{}", code);
 		return sysDictMapper.queryDictItemsByCode(code);
 	}
 
@@ -59,7 +59,7 @@ public class SysDictServiceImpl extends ServiceImpl<SysDictMapper, SysDict> impl
 	@Override
 	@Cacheable(value = CacheConstant.DICT_CACHE)
 	public String queryDictTextByKey(String code, String key) {
-		log.info("无缓存dictText的时候调用这里！");
+		log.info("无缓存dictText的时候调用这里！code:{}, key:{}", code, key);
 		return sysDictMapper.queryDictTextByKey(code, key);
 	}
 
@@ -74,13 +74,13 @@ public class SysDictServiceImpl extends ServiceImpl<SysDictMapper, SysDict> impl
 	@Override
 	//@Cacheable(value = "dictTableCache")
 	public List<DictModel> queryTableDictItemsByCode(String table, String text, String code) {
-		log.info("无缓存dictTableList的时候调用这里！");
+		log.info("无缓存dictTableList的时候调用这里！table:{}, text:{}, code:{}", table, text, code);
 		return sysDictMapper.queryTableDictItemsByCode(table,text,code);
 	}
 
 	@Override
 	public List<DictModel> queryTableDictItemsByCodeAndFilter(String table, String text, String code, String filterSql) {
-		log.info("无缓存dictTableList的时候调用这里！");
+		log.info("无缓存dictTableList的时候调用这里！table:{}, text:{}, code:{}, filterSql:{}", table, text, code, filterSql);
 		return sysDictMapper.queryTableDictItemsByCodeAndFilter(table,text,code,filterSql);
 	}
 	
@@ -96,7 +96,7 @@ public class SysDictServiceImpl extends ServiceImpl<SysDictMapper, SysDict> impl
 	@Override
 	@Cacheable(value = "dictTableCache")
 	public String queryTableDictTextByKey(String table,String text,String code, String key) {
-		log.info("无缓存dictTable的时候调用这里！");
+		log.info("无缓存dictTable的时候调用这里！table:{}, text:{}, code:{}, key:{}", table, text, code, key);
 		return sysDictMapper.queryTableDictTextByKey(table,text,code,key);
 	}
 

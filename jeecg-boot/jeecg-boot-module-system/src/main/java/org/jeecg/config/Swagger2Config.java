@@ -25,7 +25,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * @Author scott
+ * @Author
  */
 @Slf4j
 @Configuration
@@ -34,9 +34,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class Swagger2Config implements WebMvcConfigurer {
 
 	/**
-	 *
 	 * 显示swagger-ui.html文档展示页，还必须注入swagger资源：
-	 * 
 	 * @param registry
 	 */
 	@Override
@@ -48,7 +46,6 @@ public class Swagger2Config implements WebMvcConfigurer {
 
 	/**
 	 * swagger2的配置文件，这里可以配置swagger2的一些基本的内容，比如扫描的包等等
-	 *
 	 * @return Docket
 	 */
 	@Bean
@@ -79,13 +76,12 @@ public class Swagger2Config implements WebMvcConfigurer {
 
 	/**
 	 * api文档的详细信息函数,注意这里的注解引用的是哪个
-	 *
 	 * @return
 	 */
 	private ApiInfo apiInfo() {
 		return new ApiInfoBuilder()
 				// //大标题
-				.title("Jeecg-Boot 后台服务API接口文档")
+				.title("平台服务API接口文档")
 				// 版本号
 				.version("1.0")
 //				.termsOfServiceUrl("NO terms of service")

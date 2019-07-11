@@ -37,9 +37,8 @@ import io.swagger.annotations.ApiOperation;
 
  /**
  * @Description: ${tableVo.ftlDescription}
- * @Author: jeecg-boot
+ * @Author:
  * @Date:   ${.now?string["yyyy-MM-dd"]}
- * @Version: V1.0
  */
 @Slf4j
 @Api(tags="${tableVo.ftlDescription}")
@@ -48,16 +47,8 @@ import io.swagger.annotations.ApiOperation;
 public class ${entityName}Controller {
 	@Autowired
 	private I${entityName}Service ${entityName?uncap_first}Service;
-	
-	/**
-	  * 分页列表查询
-	 * @param ${entityName?uncap_first}
-	 * @param pageNo
-	 * @param pageSize
-	 * @param req
-	 * @return
-	 */
-	@AutoLog(value = "${tableVo.ftlDescription}-分页列表查询")
+
+	//@AutoLog(value = "${tableVo.ftlDescription}-分页列表查询")
 	@ApiOperation(value="${tableVo.ftlDescription}-分页列表查询", notes="${tableVo.ftlDescription}-分页列表查询")
 	@GetMapping(value = "/list")
 	public Result<IPage<${entityName}>> queryPageList(${entityName} ${entityName?uncap_first},
@@ -72,12 +63,7 @@ public class ${entityName}Controller {
 		result.setResult(pageList);
 		return result;
 	}
-	
-	/**
-	  *   添加
-	 * @param ${entityName?uncap_first}
-	 * @return
-	 */
+
 	@AutoLog(value = "${tableVo.ftlDescription}-添加")
 	@ApiOperation(value="${tableVo.ftlDescription}-添加", notes="${tableVo.ftlDescription}-添加")
 	@PostMapping(value = "/add")
@@ -87,25 +73,20 @@ public class ${entityName}Controller {
 			${entityName?uncap_first}Service.save(${entityName?uncap_first});
 			result.success("添加成功！");
 		} catch (Exception e) {
-			log.error(e.getMessage(),e);
-			result.error500("操作失败");
+			log.error("添加失败:{}", e);
+			result.error500("操作失败：" + e.getMessage());
 		}
 		return result;
 	}
-	
-	/**
-	  *  编辑
-	 * @param ${entityName?uncap_first}
-	 * @return
-	 */
-	@AutoLog(value = "${tableVo.ftlDescription}-编辑")
+
+	//@AutoLog(value = "${tableVo.ftlDescription}-编辑")
 	@ApiOperation(value="${tableVo.ftlDescription}-编辑", notes="${tableVo.ftlDescription}-编辑")
 	@PutMapping(value = "/edit")
 	public Result<${entityName}> edit(@RequestBody ${entityName} ${entityName?uncap_first}) {
 		Result<${entityName}> result = new Result<${entityName}>();
 		${entityName} ${entityName?uncap_first}Entity = ${entityName?uncap_first}Service.getById(${entityName?uncap_first}.getId());
-		if(${entityName?uncap_first}Entity==null) {
-			result.error500("未找到对应实体");
+		if(${entityName?uncap_first}Entity == null) {
+			result.error500("未找到数据!");
 		}else {
 			boolean ok = ${entityName?uncap_first}Service.updateById(${entityName?uncap_first});
 			//TODO 返回false说明什么？
@@ -116,12 +97,7 @@ public class ${entityName}Controller {
 		
 		return result;
 	}
-	
-	/**
-	  *   通过id删除
-	 * @param id
-	 * @return
-	 */
+
 	@AutoLog(value = "${tableVo.ftlDescription}-通过id删除")
 	@ApiOperation(value="${tableVo.ftlDescription}-通过id删除", notes="${tableVo.ftlDescription}-通过id删除")
 	@DeleteMapping(value = "/delete")
@@ -129,44 +105,34 @@ public class ${entityName}Controller {
 		try {
 			${entityName?uncap_first}Service.removeById(id);
 		} catch (Exception e) {
-			log.error("删除失败",e.getMessage());
-			return Result.error("删除失败!");
+			log.error("删除失败:{}", e.getMessage());
+			return Result.error("删除失败：" + e.getMessage());
 		}
 		return Result.ok("删除成功!");
 	}
-	
-	/**
-	  *  批量删除
-	 * @param ids
-	 * @return
-	 */
+
 	@AutoLog(value = "${tableVo.ftlDescription}-批量删除")
 	@ApiOperation(value="${tableVo.ftlDescription}-批量删除", notes="${tableVo.ftlDescription}-批量删除")
 	@DeleteMapping(value = "/deleteBatch")
 	public Result<${entityName}> deleteBatch(@RequestParam(name="ids",required=true) String ids) {
 		Result<${entityName}> result = new Result<${entityName}>();
 		if(ids==null || "".equals(ids.trim())) {
-			result.error500("参数不识别！");
+			result.error500("参数错误！");
 		}else {
 			this.${entityName?uncap_first}Service.removeByIds(Arrays.asList(ids.split(",")));
 			result.success("删除成功!");
 		}
 		return result;
 	}
-	
-	/**
-	  * 通过id查询
-	 * @param id
-	 * @return
-	 */
-	@AutoLog(value = "${tableVo.ftlDescription}-通过id查询")
+
+	//@AutoLog(value = "${tableVo.ftlDescription}-通过id查询")
 	@ApiOperation(value="${tableVo.ftlDescription}-通过id查询", notes="${tableVo.ftlDescription}-通过id查询")
 	@GetMapping(value = "/queryById")
 	public Result<${entityName}> queryById(@RequestParam(name="id",required=true) String id) {
 		Result<${entityName}> result = new Result<${entityName}>();
 		${entityName} ${entityName?uncap_first} = ${entityName?uncap_first}Service.getById(id);
 		if(${entityName?uncap_first}==null) {
-			result.error500("未找到对应实体");
+			result.error500("未找到数据!");
 		}else {
 			result.setResult(${entityName?uncap_first});
 			result.setSuccess(true);
@@ -175,10 +141,7 @@ public class ${entityName}Controller {
 	}
 
   /**
-      * 导出excel
-   *
-   * @param request
-   * @param response
+   * 导出excel
    */
   @RequestMapping(value = "/exportXls")
   public ModelAndView exportXls(HttpServletRequest request, HttpServletResponse response) {
@@ -207,11 +170,7 @@ public class ${entityName}Controller {
   }
 
   /**
-      * 通过excel导入数据
-   *
-   * @param request
-   * @param response
-   * @return
+   * 通过excel导入数据
    */
   @RequestMapping(value = "/importExcel", method = RequestMethod.POST)
   public Result<?> importExcel(HttpServletRequest request, HttpServletResponse response) {

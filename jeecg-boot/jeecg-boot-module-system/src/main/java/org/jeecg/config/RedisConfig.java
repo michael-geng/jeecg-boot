@@ -77,7 +77,7 @@ public class RedisConfig extends CachingConfigurerSupport {
 
 	/**
 	 * 缓存配置管理器
-	 */
+
 	@Bean
 	public CacheManager cacheManager(LettuceConnectionFactory factory) {
 		// 以锁写入的方式创建RedisCacheWriter对象
@@ -86,6 +86,6 @@ public class RedisConfig extends CachingConfigurerSupport {
 		RedisCacheConfiguration config = RedisCacheConfiguration.defaultCacheConfig().entryTtl(Duration.ofHours(3)); //设置缓存默认有效期3小时;
 		RedisCacheManager cacheManager = new RedisCacheManager(writer, config);
 		return cacheManager;
-	}
+	}*/
 
 }

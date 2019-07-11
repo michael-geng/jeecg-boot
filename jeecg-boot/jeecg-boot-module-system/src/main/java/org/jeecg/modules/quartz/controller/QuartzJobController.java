@@ -26,6 +26,7 @@ import org.quartz.JobKey;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -56,6 +57,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/sys/quartzJob")
 @Slf4j
 @Api(tags = "定时任务接口")
+@ConditionalOnProperty(value = "${spring.quartz.enabled}", matchIfMissing = false)
 public class QuartzJobController {
 	@Autowired
 	private IQuartzJobService quartzJobService;

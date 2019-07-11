@@ -1,19 +1,18 @@
 package org.jeecg.common.system.util;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-
 import org.jeecg.common.system.vo.SysUserCacheInfo;
 import org.jeecg.common.util.SpringContextUtils;
-import org.jeecg.modules.system.entity.SysPermissionDataRule;
+import org.jeecg.common.system.entity.SysPermissionDataRule;
 import org.springframework.util.StringUtils;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @ClassName: JeecgDataAutorUtils
  * @Description: 数据权限查询规则容器工具类
- * @Author: 张代浩
+ * @Author:
  * @Date: 2012-12-15 下午11:27:39
  * 
  */
@@ -29,7 +28,6 @@ public class JeecgDataAutorUtils {
 	 * 往链接请求里面，传入数据查询条件
 	 * 
 	 * @param request
-	 * @param MENU_DATA_AUTHOR_RULES
 	 */
 	public static synchronized void installDataSearchConditon(HttpServletRequest request, List<SysPermissionDataRule> dataRules) {
 		@SuppressWarnings("unchecked")
@@ -46,8 +44,6 @@ public class JeecgDataAutorUtils {
 
 	/**
 	 * 获取请求对应的数据权限规则
-	 * 
-	 * @param request
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
@@ -58,8 +54,6 @@ public class JeecgDataAutorUtils {
 
 	/**
 	 * 获取请求对应的数据权限SQL
-	 * 
-	 * @param request
 	 * @return
 	 */
 	public static synchronized String loadDataSearchConditonSQLString() {
@@ -70,7 +64,6 @@ public class JeecgDataAutorUtils {
 	 * 往链接请求里面，传入数据查询条件
 	 * 
 	 * @param request
-	 * @param MENU_DATA_AUTHOR_RULE_SQL
 	 */
 	public static synchronized void installDataSearchConditon(HttpServletRequest request, String sql) {
 		String ruleSql = (String)loadDataSearchConditonSQLString();

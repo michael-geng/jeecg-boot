@@ -19,7 +19,7 @@ import org.jeecg.common.constant.CommonConstant;
 import org.jeecg.common.system.query.QueryGenerator;
 import org.jeecg.common.util.oConvertUtils;
 import org.jeecg.modules.system.entity.SysPermission;
-import org.jeecg.modules.system.entity.SysPermissionDataRule;
+import org.jeecg.common.system.entity.SysPermissionDataRule;
 import org.jeecg.modules.system.entity.SysRole;
 import org.jeecg.modules.system.entity.SysRolePermission;
 import org.jeecg.modules.system.model.TreeModel;
@@ -255,7 +255,7 @@ public class SysRoleController {
 	/**
 	 * 导出excel
 	 * @param request
-	 * @param response
+	 * @param sysRole
 	 */
 	@RequestMapping(value = "/exportXls")
 	public ModelAndView exportXls(SysRole sysRole,HttpServletRequest request) {

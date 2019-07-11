@@ -62,7 +62,7 @@ public class JeecgBootExceptionHandler {
 	@ExceptionHandler(HttpRequestMethodNotSupportedException.class)
 	public Result<?> HttpRequestMethodNotSupportedException(Exception e){
 		log.error(e.getMessage(), e);
-		return Result.error("没有权限，请联系管理员授权");
+		return Result.error(e.getMessage());
 	}
 
 }

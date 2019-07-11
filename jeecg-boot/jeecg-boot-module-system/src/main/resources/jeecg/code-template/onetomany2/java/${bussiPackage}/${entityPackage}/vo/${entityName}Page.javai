@@ -13,9 +13,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * @Description: ${tableVo.ftlDescription}
- * @Author: jeecg-boot
+ * @Author: ds
  * @Date:   ${.now?string["yyyy-MM-dd"]}
- * @Version: V1.0
  */
 @Data
 public class ${entityName}Page {

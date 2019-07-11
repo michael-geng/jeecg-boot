@@ -25,11 +25,12 @@
                 个性化
               </router-link>
             </a-menu-item>
+            <!--
             <a-menu-item key="/account/settings/binding">
               <router-link :to="{ name: 'account-settings-binding' }">
                 账户绑定
               </router-link>
-            </a-menu-item>
+            </a-menu-item>-->
             <a-menu-item key="/account/settings/notification">
               <router-link :to="{ name: 'account-settings-notification' }">
                 新消息通知

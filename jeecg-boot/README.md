@@ -3,36 +3,27 @@ Jeecg-Boot 快速开发平台
 
 当前最新版本： 2.0.2（发布日期：20190708）
 
-
 ## 后端技术架构
 - 基础框架：Spring Boot 2.1.3.RELEASE
-
 - 持久层框架：Mybatis-plus_3.1.2
-
 - 安全框架：Apache Shiro 1.4.0，Jwt_3.7.0
-
 - 数据库连接池：阿里巴巴Druid 1.1.10
-
-- 缓存框架：redis
-
-- 日志打印：logback
-
+- 缓存框架：redis j2cache caffeine
+- 日志打印：logback1.2.3
 - 其他：fastjson，poi，Swagger-ui，quartz, lombok（简化代码）等。
-
-
 
 ## 开发环境
 
 - 语言：Java 8
-
 - IDE(JAVA)： Eclipse安装lombok插件 或者 IDEA
-
 - 依赖管理：Maven
-
-- 数据库：MySQL5.0  &  Oracle 11g
-
+- 数据库：MySQL5.0以上
 - 缓存：Redis
 
+## 部署
+- vue先编译到 dist 目录 npm run build或者 yarn run build
+- 部署到 nginx，拷贝到 nginx 的 www 目录，配置 server
+- 前后端分开部署时，axios的baseURL必须配置整个 url
  
 ## 开发文档
 
@@ -255,3 +246,8 @@ code: {
         }
       },
 ```
+
+### 动态数据源使用
+1. 使用 @DS 切换数据源。
+2. @DS 可以注解在方法上和类上，同时存在方法注解优先于类上注解。
+3. 注解在service实现或mapper接口方法上，但强烈不建议同时在service和mapper注解。 (可能会有问题)

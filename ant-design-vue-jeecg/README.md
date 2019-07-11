@@ -56,6 +56,10 @@ yarn run build
 yarn run lint
 ```
 
+## 部署
+- vue先编译到 dist 目录 npm run build或者 yarn run build
+- 部署到 nginx，拷贝到 nginx 的 www 目录，配置 server
+- 前后端分开部署时，axios的baseURL必须配置整个 url
 
 
 其他说明

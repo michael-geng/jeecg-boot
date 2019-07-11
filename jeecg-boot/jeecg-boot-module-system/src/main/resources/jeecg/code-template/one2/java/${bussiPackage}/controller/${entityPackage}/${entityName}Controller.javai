@@ -38,7 +38,7 @@ import com.alibaba.fastjson.JSON;
 
  /**
  * @Description: ${tableVo.ftlDescription}
- * @Author: jeecg-boot
+ * @Author: ds
  * @Date:   ${.now?string["yyyy-MM-dd"]}
  * @Version: V1.0
  */
@@ -195,7 +195,7 @@ public class ${entityName}Controller {
     }
 
     /**
-          * 通过excel导入数据
+     * 通过excel导入数据
      *
      * @param request
      * @param response

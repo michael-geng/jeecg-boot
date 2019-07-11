@@ -10,7 +10,7 @@ import org.jeecg.common.constant.CommonConstant;
 import org.jeecg.common.system.query.QueryGenerator;
 import org.jeecg.common.util.oConvertUtils;
 import org.jeecg.modules.system.entity.SysPermission;
-import org.jeecg.modules.system.entity.SysPermissionDataRule;
+import org.jeecg.common.system.entity.SysPermissionDataRule;
 import org.jeecg.modules.system.mapper.SysPermissionDataRuleMapper;
 import org.jeecg.modules.system.mapper.SysPermissionMapper;
 import org.jeecg.modules.system.service.ISysPermissionDataRuleService;
@@ -78,7 +78,7 @@ public class SysPermissionDataRuleImpl extends ServiceImpl<SysPermissionDataRule
 		if(set.size()==0) {
 			return null;
 		}
-		return this.baseMapper.selectList(new QueryWrapper<SysPermissionDataRule>().in("id", set).eq("status",CommonConstant.STATUS_1));
+		return this.baseMapper.selectList(new QueryWrapper<SysPermissionDataRule>().in("id", set).eq("status", CommonConstant.STATUS_1));
 	}
 
 	@Override

@@ -2,7 +2,7 @@ package org.jeecg.modules.system.service;
 
 import java.util.List;
 
-import org.jeecg.modules.system.entity.SysPermissionDataRule;
+import org.jeecg.common.system.entity.SysPermissionDataRule;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -19,7 +19,7 @@ public interface ISysPermissionDataRuleService extends IService<SysPermissionDat
 	/**
 	 * 根据菜单id查询其对应的权限数据
 	 * 
-	 * @param permRule
+	 * @param permissionId
 	 */
 	List<SysPermissionDataRule> getPermRuleListByPermId(String permissionId);
 
@@ -33,7 +33,7 @@ public interface ISysPermissionDataRuleService extends IService<SysPermissionDat
 	
 	/**
 	  * 根据菜单ID和用户名查找数据权限配置信息
-	 * @param permission
+	 * @param permissionId
 	 * @param username
 	 * @return
 	 */
