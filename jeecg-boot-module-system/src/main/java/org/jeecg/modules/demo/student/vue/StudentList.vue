@@ -7,16 +7,32 @@
         <a-row :gutter="24">
 
           <a-col :md="6" :sm="8">
-            <a-form-item label="name">
-              <a-input placeholder="请输入name" v-model="queryParam.name"></a-input>
+            <a-form-item label="用户编码">
+              <a-input placeholder="请输入用户编码" v-model="queryParam.userno"></a-input>
             </a-form-item>
           </a-col>
           <a-col :md="6" :sm="8">
-            <a-form-item label="classId">
-              <a-input placeholder="请输入classId" v-model="queryParam.classId"></a-input>
+            <a-form-item label="用户登录账号">
+              <a-input placeholder="请输入用户登录账号" v-model="queryParam.username"></a-input>
             </a-form-item>
           </a-col>
-
+        <template v-if="toggleSearchStatus">
+        <a-col :md="6" :sm="8">
+            <a-form-item label="真实姓名">
+              <a-input placeholder="请输入真实姓名" v-model="queryParam.realname"></a-input>
+            </a-form-item>
+          </a-col>
+          <a-col :md="6" :sm="8">
+            <a-form-item label="身份证号">
+              <a-input placeholder="请输入身份证号" v-model="queryParam.idCard"></a-input>
+            </a-form-item>
+          </a-col>
+          <a-col :md="6" :sm="8">
+            <a-form-item label="用户昵称">
+              <a-input placeholder="请输入用户昵称" v-model="queryParam.nickname"></a-input>
+            </a-form-item>
+          </a-col>
+          </template>
           <a-col :md="6" :sm="8" >
             <span style="float: left;overflow: hidden;" class="table-page-search-submitButtons">
               <a-button type="primary" @click="searchQuery" icon="search">查询</a-button>
@@ -27,6 +43,7 @@
               </a>
             </span>
           </a-col>
+
         </a-row>
       </a-form>
     </div>
@@ -116,14 +133,99 @@
             }
            },
 		   {
-            title: 'name',
+            title: '用户编码',
             align:"center",
-            dataIndex: 'name_dictText'
+            dataIndex: 'userno'
            },
 		   {
-            title: 'classId',
+            title: '用户登录账号',
             align:"center",
-            dataIndex: 'classId'
+            dataIndex: 'username'
+           },
+		   {
+            title: '真实姓名',
+            align:"center",
+            dataIndex: 'realname'
+           },
+		   {
+            title: '身份证号',
+            align:"center",
+            dataIndex: 'idCard'
+           },
+		   {
+            title: '用户昵称',
+            align:"center",
+            dataIndex: 'nickname'
+           },
+		   {
+            title: '密码',
+            align:"center",
+            dataIndex: 'password'
+           },
+		   {
+            title: 'md5密码盐',
+            align:"center",
+            dataIndex: 'salt'
+           },
+		   {
+            title: '头像',
+            align:"center",
+            dataIndex: 'avatar'
+           },
+		   {
+            title: '头像审核状态：0 默认、1 审核中 2 审核通过 -1 审核失败',
+            align:"center",
+            dataIndex: 'avatarStatus'
+           },
+		   {
+            title: '生日',
+            align:"center",
+            dataIndex: 'birthday'
+           },
+		   {
+            title: '性别（1：男 2：女）',
+            align:"center",
+            dataIndex: 'sex'
+           },
+		   {
+            title: '电子邮件',
+            align:"center",
+            dataIndex: 'email'
+           },
+		   {
+            title: '省份',
+            align:"center",
+            dataIndex: 'province'
+           },
+		   {
+            title: '城市',
+            align:"center",
+            dataIndex: 'city'
+           },
+		   {
+            title: '状态(1：正常  2：冻结 3、注销）',
+            align:"center",
+            dataIndex: 'status'
+           },
+		   {
+            title: '删除状态（0，正常，1已删除）',
+            align:"center",
+            dataIndex: 'delFlag'
+           },
+		   {
+            title: '简介',
+            align:"center",
+            dataIndex: 'intro'
+           },
+		   {
+            title: '注册来源 1：主动注册 2：后台导入',
+            align:"center",
+            dataIndex: 'source'
+           },
+		   {
+            title: 'userType',
+            align:"center",
+            dataIndex: 'userType'
            },
           {
             title: '操作',

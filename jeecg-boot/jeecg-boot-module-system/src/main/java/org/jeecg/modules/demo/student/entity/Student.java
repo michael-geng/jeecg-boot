@@ -12,6 +12,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.jeecg.common.aspect.annotation.Dict;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.jeecgframework.poi.excel.annotation.Excel;
 
@@ -35,6 +36,7 @@ public class Student {
 	/**name*/
 	@Excel(name = "name", width = 15)
     @ApiModelProperty(value = "name")
+	@Dict(dicCode = "sex")
 	private String name;
 	/**classId*/
 	@Excel(name = "classId", width = 15)

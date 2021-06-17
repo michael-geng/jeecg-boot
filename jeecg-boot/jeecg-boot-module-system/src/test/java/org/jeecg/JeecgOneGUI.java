@@ -16,7 +16,7 @@ public class JeecgOneGUI {
     public static void main(String[] args) {
     	//new CodeWindow().pack();
 		TableVo tableVo = new TableVo();
-		tableVo.setTableName("student");//表名
+		tableVo.setTableName("STUDENT");//表名
 		tableVo.setEntityName("Student");	 //实体名
 		tableVo.setEntityPackage("student");	 //包名
 		tableVo.setFtlDescription("订单");	 //描述

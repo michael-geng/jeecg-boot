@@ -251,3 +251,13 @@ code: {
 1. 使用 @DS 切换数据源。
 2. @DS 可以注解在方法上和类上，同时存在方法注解优先于类上注解。
 3. 注解在service实现或mapper接口方法上，但强烈不建议同时在service和mapper注解。 (可能会有问题)
+
+### api 文档生成
+先使用 swaggerTest 生成aciidoc 文件
+在使用命令mvn generate-resources生成 html、pdf 文件
+但是生成的api 文档，质量一般
+
+### 代码生成
+配置db的配置文件在/jeecg-boot-module-system/src/main/resources/jeecg/jeecg_database.properties
+设置代码生成的package和目录: jeecg_config.properties
+表名现在都是大写的,这个很垃圾

@@ -15,8 +15,11 @@
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
           label="name">
-          <a-input placeholder="请输入name" v-decorator="['name', {}]" />
+          <!--<a-input placeholder="请输入name" v-decorator="['name', {}]" />-->
+          <j-dict-select-tag  v-decorator="['name', {}]" :triggerChange="true" placeholder="请选择"
+                              dictCode="sex" />
         </a-form-item>
+
         <a-form-item
           :labelCol="labelCol"
           :wrapperCol="wrapperCol"
